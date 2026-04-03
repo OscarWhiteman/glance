@@ -6,13 +6,13 @@ Capture any part of your screen and get an AI-powered explanation, debug analysi
 
 ## Download
 
-**[Download Glance v1.0.0 Beta](https://github.com/OscarWhiteman/glance/releases/tag/v1.0.0-beta)**
+**[Download Glance v1.1.0](https://github.com/OscarWhiteman/glance/releases/tag/v1.1.0)**
 
-| Platform | Download |
-|----------|----------|
-| macOS (Apple Silicon) | `Glance-1.0.0-arm64.dmg` |
-| Windows | `Glance-Setup-1.0.0.exe` |
-| Linux | `Glance-1.0.0.AppImage` |
+| Platform | File |
+|----------|------|
+| macOS (Apple Silicon) | `Glance-1.1.0-arm64.dmg` |
+| Windows | `Glance-Setup-1.1.0.exe` |
+| Linux | `Glance-1.1.0.AppImage` |
 
 > Requires an API key from Anthropic, OpenAI, or Google Gemini. You'll be prompted to enter one on first launch.
 
@@ -47,23 +47,23 @@ Glance also includes a Chrome extension. Right-click any element or selected tex
 
 ### Install on Windows
 
-1. Download `Glance-Setup-1.0.0.exe` from the [Releases](../../releases) page
+1. Download `Glance-Setup-1.1.0.exe` from the [Releases](../../releases) page
 2. Run the installer — it will install and launch Glance automatically
 3. Glance will appear in your system tray
 4. Follow the onboarding wizard to enter your API key
 
 ### Install on macOS
 
-1. Download `Glance-1.0.0-arm64.dmg` from the [Releases](../../releases) page
+1. Download `Glance-1.1.0-arm64.dmg` from the [Releases](../../releases) page
 2. Open the DMG and drag **Glance** to your Applications folder
 3. **Right-click > Open** the first time (the app is unsigned, so macOS will block a normal double-click)
 4. Follow the onboarding wizard to enter your API key
 
 ### Install on Linux
 
-1. Download `Glance-1.0.0.AppImage` from the [Releases](../../releases) page
-2. Make it executable: `chmod +x Glance-1.0.0.AppImage`
-3. Run it: `./Glance-1.0.0.AppImage`
+1. Download `Glance-1.1.0.AppImage` from the [Releases](../../releases) page
+2. Make it executable: `chmod +x Glance-1.1.0.AppImage`
+3. Run it: `./Glance-1.1.0.AppImage`
 4. Follow the onboarding wizard to enter your API key
 
 ### Chrome Extension (Optional)
@@ -146,8 +146,8 @@ Another application may be using `Ctrl+Shift+G`. Check your other running apps (
 
 Make sure the file is marked as executable:
 ```bash
-chmod +x Glance-1.0.0.AppImage
-./Glance-1.0.0.AppImage
+chmod +x Glance-1.1.0.AppImage
+./Glance-1.1.0.AppImage
 ```
 
 Some desktop environments require you to right-click the file and enable **"Allow executing file as program"**.
