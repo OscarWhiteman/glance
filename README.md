@@ -4,6 +4,12 @@
 
 Capture any part of your screen and get an AI-powered explanation, debug analysis, or code conversion in seconds. Glance lives in your menu bar and works with a single keyboard shortcut.
 
+## Download
+
+**[Download Glance v1.0.0 Beta](https://github.com/OscarWhiteman/glance/releases/tag/v1.0.0-beta)** (macOS, Apple Silicon)
+
+> Requires an API key from Anthropic, OpenAI, or Google Gemini. You'll be prompted to enter one on first launch.
+
 ---
 
 ## How It Works
@@ -89,6 +95,26 @@ packages/
   electron/     — Desktop app (Electron + React + Tailwind)
   extension/    — Chrome MV3 browser extension
 ```
+
+---
+
+## Troubleshooting
+
+### "Glance can't be opened because Apple cannot check it for malicious software"
+
+This is normal — the app isn't signed with an Apple Developer certificate yet. To bypass this:
+
+1. **Don't double-click.** Instead, **right-click** (or Control-click) on Glance in your Applications folder
+2. Select **Open** from the menu
+3. A dialog will appear — click **Open** again
+4. macOS will remember your choice, and it will open normally from now on
+
+### Screen captures are blank or the hotkey doesn't work
+
+Make sure Screen Recording permission is enabled:
+1. Open **System Settings > Privacy & Security > Screen Recording**
+2. Toggle **Glance** on
+3. Restart Glance
 
 ---
 
