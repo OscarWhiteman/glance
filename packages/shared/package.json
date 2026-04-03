@@ -1,0 +1,27 @@
+{
+  "name": "@glance/shared",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import":  "./dist/index.js",
+      "types":   "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build":     "tsc",
+    "dev":       "tsc --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "openai":                 "^4.47.1",
+    "@anthropic-ai/sdk":      "^0.24.3",
+    "@google/generative-ai":  "^0.14.1"
+  }
+}

@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Transparent root so vibrancy shows through */
+html, body, #root {
+  background: transparent !important;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Electron drag region helpers */
+.drag { -webkit-app-region: drag; }
+.no-drag { -webkit-app-region: no-drag; }
+
+/* Smooth scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+/* Prose overrides for dark streaming content */
+.prose pre {
+  @apply bg-white/5 border border-white/10 rounded-lg;
+}
+.prose pre code {
+  @apply text-slate-200;
+}

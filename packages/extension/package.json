@@ -1,0 +1,15 @@
+{
+  "name": "@glance/extension",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "BUILD_TARGET=background vite build --config vite.config.ts && BUILD_TARGET=content vite build --config vite.config.ts && cp manifest.json dist/",
+    "dev": "BUILD_TARGET=background vite build --watch --config vite.config.ts & BUILD_TARGET=content vite build --watch --config vite.config.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "typescript": "^5.4.5",
+    "vite": "^5.3.1"
+  }
+}

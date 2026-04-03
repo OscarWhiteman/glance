@@ -1,0 +1,17 @@
+{
+  "name": "glance",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "build:dist": "npm run build && npm run pack --workspace=packages/electron",
+    "dev": "npm run dev --workspace=packages/electron",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

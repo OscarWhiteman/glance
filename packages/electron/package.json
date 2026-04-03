@@ -1,0 +1,110 @@
+{
+  "name": "@glance/electron",
+  "version": "1.0.0",
+  "description": "Glance — instant AI screen analysis for macOS and Windows",
+  "author": "Glance <hello@glance.dev>",
+  "private": true,
+  "main": "./dist/main.js",
+  "scripts": {
+    "build:renderer": "vite build --config renderer/vite.config.ts",
+    "build:main": "tsc -p tsconfig.json",
+    "build": "npm run build:renderer && npm run build:main",
+    "dev": "npm run build:renderer && concurrently -n renderer,main,electron -c cyan,yellow,green \"vite build --watch --config renderer/vite.config.ts\" \"tsc --watch -p tsconfig.json\" \"electron .\"",
+    "start": "electron .",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p renderer/tsconfig.json",
+    "pack": "USE_SYSTEM_7ZA=true npx electron-builder@latest --mac --dir && codesign --force --deep --sign - release/mac-arm64/Glance.app && node scripts/make-dmg.js"
+  },
+  "dependencies": {
+    "@glance/shared": "*",
+    "electron-updater": "^6.8.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0",
+    "ws": "^8.17.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.13",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/ws": "^8.5.10",
+    "@vitejs/plugin-react": "^4.3.1",
+    "7zip-bin": "^5.2.0",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
+    "electron": "31.7.7",
+    "electron-builder": "^24.13.3",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.4.5",
+    "vite": "^5.3.1"
+  },
+  "build": {
+    "appId": "dev.glance.app",
+    "productName": "Glance",
+    "directories": {
+      "output": "release"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "glance-app",
+      "repo": "glance",
+      "releaseType": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "ui/**/*",
+      "build/**/*",
+      {
+        "from": "../shared/dist",
+        "to": "node_modules/@glance/shared/dist",
+        "filter": [
+          "**/*"
+        ]
+      },
+      {
+        "from": "../shared/package.json",
+        "to": "node_modules/@glance/shared/package.json"
+      }
+    ],
+    "mac": {
+      "icon": "build/icon.png",
+      "category": "public.app-category.developer-tools",
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false,
+      "identity": null
+    },
+    "dmg": {
+      "title": "Glance ${version}",
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "icon": "build/icon.png",
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "icon": "build/icon.png",
+      "target": [
+        "AppImage"
+      ],
+      "category": "Development"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false
+    }
+  }
+}
