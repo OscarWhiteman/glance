@@ -12,7 +12,9 @@
     "dev": "npm run build:renderer && concurrently -n renderer,main,electron -c cyan,yellow,green \"vite build --watch --config renderer/vite.config.ts\" \"tsc --watch -p tsconfig.json\" \"electron .\"",
     "start": "electron .",
     "typecheck": "tsc --noEmit && tsc --noEmit -p renderer/tsconfig.json",
-    "pack": "USE_SYSTEM_7ZA=true npx electron-builder@latest --mac --dir && codesign --force --deep --sign - release/mac-arm64/Glance.app && node scripts/make-dmg.js"
+    "pack": "USE_SYSTEM_7ZA=true npx electron-builder@latest --mac --dir && codesign --force --deep --sign - release/mac-arm64/Glance.app && node scripts/make-dmg.js",
+    "pack:win": "npx electron-builder@latest --win",
+    "pack:linux": "npx electron-builder@latest --linux"
   },
   "dependencies": {
     "@glance/shared": "*",

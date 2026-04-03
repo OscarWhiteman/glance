@@ -332,7 +332,7 @@ app.whenReady().then(() => {
     setTimeout(() => {
       sendToRenderer('glance:status', {
         type: 'hotkey-conflict',
-        text: `Hotkey ${HOTKEY.replace('CommandOrControl', 'Cmd')} is already in use by another app. Capture won't work until the conflict is resolved.`,
+        text: `Hotkey ${HOTKEY.replace('CommandOrControl', process.platform === 'darwin' ? 'Cmd' : 'Ctrl')} is already in use by another app. Capture won't work until the conflict is resolved.`,
       });
     }, 1500);
   }
