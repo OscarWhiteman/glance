@@ -6,7 +6,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build --workspaces --if-present",
+    "build": "npm run build --workspace=packages/shared && npm run build --workspace=packages/electron && npm run build --workspace=packages/extension",
     "build:dist": "npm run build && npm run pack --workspace=packages/electron",
     "dev": "npm run dev --workspace=packages/electron",
     "typecheck": "npm run typecheck --workspaces --if-present"
