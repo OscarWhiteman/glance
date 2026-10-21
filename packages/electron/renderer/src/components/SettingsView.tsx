@@ -223,7 +223,7 @@ export function SettingsView({ onDone }: SettingsViewProps) {
       {/* ── Feedback ── */}
       <section className="pt-3 mt-1 border-t border-white/8">
         <button
-          onClick={() => void window.glance.openExternal('mailto:oscarwhiteman985@gmail.com?subject=Glance%20Beta%20Feedback')}
+          onClick={() => void window.glance.openExternal('mailto:whitemanoscar@gmail.com?subject=Glance%20Beta%20Feedback')}
           className="w-full py-2 rounded text-[12px] font-medium text-amber-400 bg-amber-500/10 border border-amber-500/20 hover:bg-amber-500/20 transition-all"
         >
           Send Feedback

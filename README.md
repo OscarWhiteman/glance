@@ -156,7 +156,7 @@ Some desktop environments require you to right-click the file and enable **"Allo
 
 ## Feedback
 
-This is a beta build. If you run into bugs or have ideas, hit the **Send Feedback** button in Settings or email [oscarwhiteman985@gmail.com](mailto:oscarwhiteman985@gmail.com).
+This is a beta build. If you run into bugs or have ideas, hit the **Send Feedback** button in Settings or email [whitemanoscar@gmail.com](mailto:whitemanoscar@gmail.com).
 
 ---
 
