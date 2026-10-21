@@ -18,6 +18,20 @@ Capture any part of your screen and get an AI-powered explanation, debug analysi
 
 ---
 
+## Screenshots
+
+<!-- TODO: add screenshots to docs/screenshots/ -->
+
+| Region selection | Action picker | Streaming result |
+|------------------|---------------|------------------|
+| ![Drag-to-select overlay](docs/screenshots/capture.png) | ![Action picker](docs/screenshots/action-picker.png) | ![Result window](docs/screenshots/result.png) |
+
+| Code preview | Settings | Chrome extension |
+|--------------|----------|------------------|
+| ![Convert to Code preview](docs/screenshots/preview.png) | ![Settings panel](docs/screenshots/settings.png) | ![Send to Glance context menu](docs/screenshots/extension.png) |
+
+---
+
 ## How It Works
 
 1. **Press `Ctrl+Shift+G`** (or `Cmd+Shift+G` on macOS) from anywhere on your desktop
@@ -85,6 +99,33 @@ When you first use the hotkey on macOS, the OS will ask you to grant Screen Reco
 1. Open **System Settings > Privacy & Security > Screen Recording**
 2. Find **Glance** in the list and enable it
 3. You may need to restart Glance for the change to take effect
+
+---
+
+## Architecture
+
+Glance is a TypeScript monorepo built with npm workspaces and split into three packages:
+
+- **`packages/shared`** (`@glance/shared`): the code both apps rely on. It holds the shared types (`AIRequestOptions`, `HistoryEntry`, `GlanceSettings`, …) and the AI provider layer. It has no Electron or browser dependencies.
+- **`packages/electron`**: the desktop app. The **main process** (`src/`) handles the global hotkey, the tray, screen capture (HiDPI-aware crop and JPEG compression), settings and history. It also runs a local WebSocket server. The **renderer** (`renderer/`) is a React + Tailwind UI bundled with Vite, and it talks to the main process over typed IPC channels exposed through `contextBridge` preloads.
+- **`packages/extension`**: a Chrome MV3 extension. Its content script collects the selected text or the right-clicked element. The background service worker then sends that content to the desktop app over `ws://localhost:43210`, so all AI calls and API keys stay in one place.
+
+### Provider abstraction
+
+Every AI backend extends one abstract class, `AIProvider` (`packages/shared/src/providers/base.ts`), which defines two methods:
+
+- `query(options)`, which returns the full response
+- `queryStream(options)`, an async generator that yields tokens as they arrive and returns the final `AIResponse`
+
+`createProvider(config)` is a small factory that returns the right implementation for the user's settings. As a result, the rest of the app never imports a vendor SDK directly. Adding a provider means writing one class and adding one `case`. Each provider handles both image+text requests (screen captures) and text-only requests (from the extension).
+
+| Provider | Default model (overridable in Settings) |
+|----------|------------------------------------------|
+| Anthropic | `claude-3-haiku-20240307` (app default provider) |
+| OpenAI | `gpt-4o` |
+| Google Gemini | `gemini-2.0-flash` |
+
+For more implementation notes, see [`docs/PROJECT_STATE.md`](docs/PROJECT_STATE.md).
 
 ---
 
