@@ -18,20 +18,6 @@ Capture any part of your screen and get an AI-powered explanation, debug analysi
 
 ---
 
-## Screenshots
-
-<!-- TODO: add screenshots to docs/screenshots/ -->
-
-| Region selection | Action picker | Streaming result |
-|------------------|---------------|------------------|
-| ![Drag-to-select overlay](docs/screenshots/capture.png) | ![Action picker](docs/screenshots/action-picker.png) | ![Result window](docs/screenshots/result.png) |
-
-| Code preview | Settings | Chrome extension |
-|--------------|----------|------------------|
-| ![Convert to Code preview](docs/screenshots/preview.png) | ![Settings panel](docs/screenshots/settings.png) | ![Send to Glance context menu](docs/screenshots/extension.png) |
-
----
-
 ## How It Works
 
 1. **Press `Ctrl+Shift+G`** (or `Cmd+Shift+G` on macOS) from anywhere on your desktop
