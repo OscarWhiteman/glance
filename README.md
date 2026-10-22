@@ -20,7 +20,7 @@ Capture any part of your screen and get an AI-powered explanation, debug analysi
 
 ## How It Works
 
-1. **Press `Ctrl+Shift+G`** (or `Cmd+Shift+G` on macOS) from anywhere on your desktop
+1. **Press `Cmd+Shift+G`** from anywhere on your desktop
 2. **Drag to select** the region of your screen you want to analyze
 3. **Pick an action:**
    - **Debug** (D) — find issues in error messages, stack traces, or UI bugs
@@ -77,8 +77,6 @@ Glance doesn't currently work on Windows. `Glance-Setup-1.1.0.exe` is still list
 ---
 
 ## macOS Screen Recording Permission
-
-> **macOS only — not required on Windows or Linux.**
 
 When you first use the hotkey on macOS, the OS will ask you to grant Screen Recording permission. If it doesn't, or if captures appear blank:
 
@@ -164,10 +162,6 @@ Make sure Screen Recording permission is enabled:
 1. Open **System Settings > Privacy & Security > Screen Recording**
 2. Toggle **Glance** on
 3. Restart Glance
-
-### Windows: The hotkey doesn't work
-
-Another application may be using `Ctrl+Shift+G`. Check your other running apps (e.g., gaming overlays, screenshot tools) and disable their conflicting shortcut.
 
 ### Linux: AppImage won't run
 
