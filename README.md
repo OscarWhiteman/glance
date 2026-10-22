@@ -1,6 +1,6 @@
 # Glance
 
-**Instant AI screen analysis for Windows, macOS, and Linux.**
+**Instant AI screen analysis for macOS.**
 
 Capture any part of your screen and get an AI-powered explanation, debug analysis, or code conversion in seconds. Glance lives in your system tray and works with a single keyboard shortcut.
 
@@ -8,11 +8,11 @@ Capture any part of your screen and get an AI-powered explanation, debug analysi
 
 **[Download Glance v1.1.0](https://github.com/OscarWhiteman/glance/releases/tag/v1.1.0)**
 
-| Platform | File |
-|----------|------|
-| macOS (Apple Silicon) | `Glance-1.1.0-arm64.dmg` |
-| Windows | `Glance-Setup-1.1.0.exe` |
-| Linux | `Glance-1.1.0.AppImage` |
+| Platform | File | Status |
+|----------|------|--------|
+| macOS (Apple Silicon) | `Glance-1.1.0-arm64.dmg` | Supported |
+| Linux | `Glance-1.1.0.AppImage` | Untested |
+| Windows | `Glance-Setup-1.1.0.exe` | Not currently supported |
 
 > Requires an API key from Anthropic, OpenAI, or Google Gemini. You'll be prompted to enter one on first launch.
 
@@ -39,18 +39,12 @@ Glance also includes a Chrome extension. Right-click any element or selected tex
 
 ### Requirements
 
-- Windows 10/11, macOS (Apple Silicon or Intel), or Linux
+- macOS (Apple Silicon or Intel)
+- Linux is untested; Windows is not currently supported
 - An API key from one of these providers:
   - [Anthropic](https://console.anthropic.com/) (default — uses Claude 3 Haiku)
   - [OpenAI](https://platform.openai.com/api-keys)
   - [Google Gemini](https://aistudio.google.com/app/apikey)
-
-### Install on Windows
-
-1. Download `Glance-Setup-1.1.0.exe` from the [Releases](../../releases) page
-2. Run the installer — it will install and launch Glance automatically
-3. Glance will appear in your system tray
-4. Follow the onboarding wizard to enter your API key
 
 ### Install on macOS
 
@@ -59,12 +53,18 @@ Glance also includes a Chrome extension. Right-click any element or selected tex
 3. **Right-click > Open** the first time (the app is unsigned, so macOS will block a normal double-click)
 4. Follow the onboarding wizard to enter your API key
 
-### Install on Linux
+### Install on Linux (untested)
+
+> Glance hasn't been tested on Linux yet. These steps should work, but expect rough edges.
 
 1. Download `Glance-1.1.0.AppImage` from the [Releases](../../releases) page
 2. Make it executable: `chmod +x Glance-1.1.0.AppImage`
 3. Run it: `./Glance-1.1.0.AppImage`
 4. Follow the onboarding wizard to enter your API key
+
+### Windows (not currently supported)
+
+Glance doesn't currently work on Windows. `Glance-Setup-1.1.0.exe` is still listed on the [Releases](../../releases) page, but it isn't a working build.
 
 ### Chrome Extension (Optional)
 
